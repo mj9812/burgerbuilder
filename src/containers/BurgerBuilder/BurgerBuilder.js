@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import Aux from '../../hoc/Aux1';
 import Burger from '../../components/Burger/Burger';
+import Modal from '../../components/UI/Modal/Modal';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls'
+import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 
 const INGREDIENT_PRICES = {
     salad: 0.5,
@@ -20,7 +21,8 @@ class BurgerBuilder extends Component {
             meat: 0
         },
         totalPrice: 4,
-        purchasable: false
+        purchasable: false,
+        purchasing: false
     };
 
     updatePurchaseState(ingredients) {
@@ -54,17 +56,32 @@ class BurgerBuilder extends Component {
         this.updatePurchaseState(updatedIngredients);
     }
 
+    purchaseHandler = () => {
+        this.setState({purchasing: true});
+    }
+
+    purchaseDecision = (decision) => {
+        if(decision === true) {
+            alert('You Decided to Continue...');
+        } else {
+            this.setState({purchasing: false});
+        }
+    }
+
     render() {
         const disabledInfo = { ...this.state.ingredients };
         for (let key in disabledInfo) {
             disabledInfo[key] = disabledInfo[key] <= 0;
         }
         return (
-            <Aux>
+            <React.Fragment>
+                <Modal show={this.state.purchasing} closeModal={this.purchaseDecision.bind(this, false)}>
+                    <OrderSummary ingredients={this.state.ingredients} price={this.state.totalPrice} purchaseDecision={this.purchaseDecision} />
+                </Modal>
                 <Burger ingredients={this.state.ingredients} />
                 <BuildControls ingredientsAd={this.addIngredientHandler} ingredientsRm={this.removeIngredientHandler}
-                    disabled={disabledInfo} purchasable={!this.state.purchasable} price={this.state.totalPrice} />
-            </Aux>
+                    disabled={disabledInfo} purchasable={!this.state.purchasable} price={this.state.totalPrice} ordered={this.purchaseHandler}/>
+            </React.Fragment>
         );
     }
 }

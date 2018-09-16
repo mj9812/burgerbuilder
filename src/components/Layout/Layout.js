@@ -1,14 +1,13 @@
 import React from 'react';
-import Aux from '../../hoc/Aux1';
 import './Layout.css';
 
 const layout = (props) => (
-    <Aux>
+    <React.Fragment>
         <div>Toobar, SideDrawer, Backdrop</div>
         <main className='BurgerLayoutContent'>
             {props.children}
         </main>
-    </Aux>
+    </React.Fragment>
 ); // wrapped in paranthesis are json components
 
 export default layout;
