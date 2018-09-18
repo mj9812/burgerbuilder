@@ -111,3 +111,16 @@
     background: linear-gradient(#bf3813, #c45e38);
     margin: 2% auto;
 }
+
+@media(max-width: 499px) {
+    .BreadBottom, .Meat, .Bacon, .BreadTop {
+        width: 60%;
+    }
+    .Salad{
+        width: 65%;
+    }
+    
+    .Cheese {
+        width: 68%;
+    }
+}

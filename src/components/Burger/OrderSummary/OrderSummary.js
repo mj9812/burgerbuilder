@@ -10,7 +10,7 @@ const orderSummary = (props) => { const textstyle = {textTransform: 'capitalize'
             <h3>Your Order</h3>
             <p>A Delicious burger with the following ingredients : </p>
             <ul> {ingredientSummary} </ul>
-            <p style={{fontWeight: '500'}}>Total Amount is {props.price.toFixed(2)}$ , Continue to Checkout?</p>
+            <p style={{fontWeight: '500'}}>Total Price : {props.price.toFixed(2)} $ !! Continue to Checkout?</p>
             <Button btnType='Danger' clicked={() => props.purchaseDecision(false)}>Cancel</Button>
             <Button btnType='Success' clicked={() => props.purchaseDecision(true)}>Continue</Button>
         </React.Fragment>

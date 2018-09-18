@@ -1,6 +1,6 @@
 import React from 'react';
-import './Button.css';
+import css_cls from './Button.css';
 
-const button = (props) => (<button onClick={props.clicked} className={'Button '+props.btnType}> {props.children} </button>);
+const button = (props) => (<button onClick={props.clicked} className={css_cls.Button +' '+ css_cls[props.btnType]}> {props.children} </button>);
 
 export default button;

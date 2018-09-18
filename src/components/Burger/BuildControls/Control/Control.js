@@ -1,11 +1,11 @@
 import React from 'react';
-import './Control.css';
+import css_cls from './Control.css';
 
 const control = (props) => (
-    <div className='BldControl'>
-        <div className='BldLabel'> { props.ingredientLabel } </div>
-        <button className='Less' onClick={props.removed} disabled={props.disabled}>Less</button>
-        <button className='More' onClick={props.added}>More</button>
+    <div className={css_cls.BldControl}>
+        <div className={css_cls.BldLabel}> { props.ingredientLabel } </div>
+        <button className={css_cls.Less} onClick={props.removed} disabled={props.disabled}>Less</button>
+        <button className={css_cls.More} onClick={props.added}>More</button>
     </div>
 );
 

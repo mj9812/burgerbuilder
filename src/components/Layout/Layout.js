@@ -1,13 +1,31 @@
-import React from 'react';
-import './Layout.css';
+import React , { Component } from 'react';
+import css_cls from './Layout.css';
+import Toolbar from '../Navigation/Toolbar/Toolbar';
+import SideDrawer from '../Navigation/SideDrawer/SideDrawer';
 
-const layout = (props) => (
-    <React.Fragment>
-        <div>Toobar, SideDrawer, Backdrop</div>
-        <main className='BurgerLayoutContent'>
-            {props.children}
-        </main>
-    </React.Fragment>
-); // wrapped in paranthesis are json components
+class Layout extends Component {
 
-export default layout;
+    state = {
+        showSideDrawer: false
+    };
+
+    closeSideDrawer = () => {
+        this.setState({showSideDrawer: false});
+    }
+
+    openSideDrawer = () => {
+        this.setState({showSideDrawer: true});
+    }
+
+    render() {
+        return (<React.Fragment>
+            <Toolbar openDrawer={this.openSideDrawer} />
+            <SideDrawer show={this.state.showSideDrawer} closeDrawer={this.closeSideDrawer} />
+            <main className={css_cls.BurgerLayoutContent}>
+                {this.props.children}
+            </main>
+        </React.Fragment>)
+    }
+} // wrapped in paranthesis are json components
+
+export default Layout;
