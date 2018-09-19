@@ -1,7 +1,7 @@
 import React from 'react';
 import css_cls from './Toolbar.css'
 import Logo from '../../Logo/Logo';
-import Navigations from '../Navigations/Navigations';
+import Navigations from '../Navigations';
 
 const toolbar = (props) => (
     <header className={css_cls.Toolbar}>
