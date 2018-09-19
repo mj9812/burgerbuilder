@@ -1,6 +1,7 @@
 import React from 'react';
 import css_cls from './Burger.css';
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
+import BurgerBuilder from '../../containers/BurgerBuilder/BurgerBuilder';
 
 const burger = (props) => {
     let transformedIngredients = Object.keys(props.ingredients)
@@ -11,12 +12,12 @@ const burger = (props) => {
         }).reduce((arr, el) => {
             return arr.concat(el)
         }, []);
-        if(transformedIngredients.length === 0) transformedIngredients = <p>Please start adding ingredients...</p>
+        if(transformedIngredients.length === 0) transformedIngredients = <p>Please add ingredients...</p>
     return (
         <div className={css_cls.Burger}>
-            <BurgerIngredient type='bread-top' />
+            <BurgerIngredient type={BurgerBuilder.TYPE.BreadTop} />
                 {transformedIngredients}
-            <BurgerIngredient type='bread-bottom' />
+            <BurgerIngredient type={BurgerBuilder.TYPE.BreadBottom} />
         </div>
     );
 };
