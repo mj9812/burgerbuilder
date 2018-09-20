@@ -1,7 +1,6 @@
 import React from 'react';
 import css_cls from './Burger.css';
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
-import BurgerBuilder from '../../containers/BurgerBuilder/BurgerBuilder';
 
 const burger = (props) => {
     let transformedIngredients = Object.keys(props.ingredients)
@@ -15,9 +14,9 @@ const burger = (props) => {
         if(transformedIngredients.length === 0) transformedIngredients = <p>Please add ingredients...</p>
     return (
         <div className={css_cls.Burger}>
-            <BurgerIngredient type={BurgerBuilder.TYPE.BreadTop} />
+            <BurgerIngredient type={BurgerIngredient.TYPE.BreadTop} />
                 {transformedIngredients}
-            <BurgerIngredient type={BurgerBuilder.TYPE.BreadBottom} />
+            <BurgerIngredient type={BurgerIngredient.TYPE.BreadBottom} />
         </div>
     );
 };

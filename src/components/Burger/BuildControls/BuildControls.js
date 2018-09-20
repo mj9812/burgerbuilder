@@ -1,11 +1,12 @@
 import React from 'react';
 import css_cls from './BuildControls.css';
+import BurgerIngredient from '../BurgerIngredient/BurgerIngredient';
 
 const controls = [
-    { label: 'Salad', type: 'salad' },
-    { label: 'Bacon', type: 'bacon' },
-    { label: 'Cheese', type: 'cheese' },
-    { label: 'Meat', type: 'meat' } ];
+    { label: 'Salad', type: BurgerIngredient.TYPE.Salad },
+    { label: 'Bacon', type: BurgerIngredient.TYPE.Bacon },
+    { label: 'Cheese', type: BurgerIngredient.TYPE.Cheese },
+    { label: 'Meat', type: BurgerIngredient.TYPE.Meat } ];
     
 const buildControls = (props) => (
     <div className={css_cls.BuildControls}>

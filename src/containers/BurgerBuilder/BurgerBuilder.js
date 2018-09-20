@@ -13,15 +13,6 @@ const INGREDIENT_PRICES = {
 
 class BurgerBuilder extends Component {
 
-    static TYPE = Object.freeze({
-            BreadBottom: "bread-bottom",
-            BreadTop: "bread-top",
-            Meat: "meat",
-            Cheese: "cheese",
-            Salad: "salad",
-            Bacon: "bacon",
-        });
-
     state = {
         totalPrice: 4,
         purchasable: false,

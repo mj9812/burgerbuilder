@@ -3,12 +3,7 @@ import Button from '../../UI/Reusable/Button'
 
 class OrderSummary extends Component {
 
-    componentWillUpdate() {
-        console.log('cmponent will update');
-    }
-
     shouldComponentUpdate(nextProps, nextState) {
-        console.log('order summary should update');
         return this.props.price !== nextProps.price;
     }
 
